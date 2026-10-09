@@ -16,7 +16,7 @@ When you are planning or navigating a hike in the mountains, conventional map ap
 - **Interactive Elevation & Waypoint Profiler:** Visualizes trail elevation profiles with interactive crosshairs, intermediate landmarks, pass/summit waypoints, and pinpoint inspection along continuous track arc-lengths.
 - **Biomechanical Slope Speed Modeling (Tobler's Hiking Function):** Automatically categorizes trails into 5 terrain slope classes (*Steep Up*, *Moderate Up*, *Flat*, *Moderate Down*, *Steep Down*) and calculates actual speed versus empirical human hiking physiology.
 - **Kilometer & Waypoint Split Analysis:** Breaks tracks down automatically by kilometer splits or manually between marked landmarks (e.g., *Start → Mountain Pass → Alpine Lake*).
-- **100% Offline Trail AI Companion:** Powered by open-weight Gemma models executed locally on-device via Google MediaPipe LLM Inference—delivering trail safety assessments, weather gear checklists, and pacing advice with zero cell signal.
+- **100% Offline Trail AI Companion (Powered by Google Gemma):** Powered by open-weight Gemma models executed locally on-device via Google MediaPipe LLM Inference—delivering trail safety assessments, weather gear checklists, and pacing advice with zero cell signal.
 - **Adaptive Alpine UI:** Complete Material 3 Light and Dark alpine themes, plus full bilingual support (English and Russian).
 
 ---
@@ -51,12 +51,13 @@ FlatHike is fully open-source under the Apache-2.0 License:
 
 Building software for the outdoors imposes strict constraints: **battery efficiency, offline resilience, and mathematical precision**.
 
-### 1. Open-Source AI on the Edge: Local Gemma Inference
-Cloud AI is useless at 2,500 meters altitude where cell service vanishes. To give hikers an intelligent guide that works without the internet, FlatHike integrates **open-weight Google Gemma models** (Gemma-2B and Gemma-270M) executed directly on the user's mobile device via the **Google MediaPipe Tasks GenAI API** (`com.google.mediapipe:tasks-genai`).
+### 1. Open-Source AI on the Edge: Google Gemma & Local MediaPipe Inference
+Cloud AI is useless at 2,500 meters altitude where cell service vanishes. To give hikers an intelligent guide that works without the internet, FlatHike integrates **Google's open-weight Gemma model family** (Gemma-2B and lightweight Gemma-270M) executed directly on the user's mobile device via the **Google MediaPipe Tasks GenAI API** (`com.google.mediapipe:tasks-genai`).
 
 - **Architecture:** The model weights (`.bin` / `.task`) live locally in app storage.
 - **Inference Pipeline:** Runs on-device hardware accelerators (GPU/NPU via OpenCL/Vulkan backend) with low thermal overhead.
 - **Trail System Prompts:** Structured domain prompts evaluate trail difficulty, elevation gain, pack weight, and estimated daylight remaining, generating concise, safety-critical advice without sending a single byte over the wire.
+- **Open-Weight Flexibility:** Because Gemma is an open-weight model, FlatHike can tune quantization parameters (int4 / int8) to match the RAM budget of budget smartphones while preserving reasoning quality for trail decision-making.
 
 ### 2. Biomechanical Velocity & Geodetic Algorithms
 Instead of simplistic averages, FlatHike models hiking velocity based on Waldo Tobler's Hiking Function:
@@ -92,6 +93,14 @@ This year's Hacktoberfest theme—*Touch Grass*—highlights the true potential 
 1. **Safety and Autonomy in the Backcountry:** Closed AI APIs require persistent internet connectivity, monthly subscription fees, and reliable cloud infrastructure. In the wilderness, those assumptions collapse. Open-weight models like Gemma allow developers to decouple intelligence from cloud servers, bringing life-saving analysis to any pocket anywhere on Earth.
 2. **Data Privacy & Location Sovereignty:** GPS tracks reveal intimate details about where you live, when you leave your house, and where you camp. Using closed proprietary cloud models means uploading your sensitive geotagged location history to third-party data centers. Open-source models running locally keep 100% of your location data on your phone.
 3. **Scientific Transparency:** The algorithms that estimate hiking time, calorie burn, and trail hazard should not be a proprietary black box. By keeping FlatHike open-source, the outdoor community can verify, audit, and improve the geodetic math and biomechanical models collaboratively.
+
+---
+
+## Prize Categories
+
+- **Hacktoberfest Open-Source AI Challenge: Week 1 — Touch Grass (Overall Category)**
+- **Best Use of Open-Weight Models & Edge AI (Google Gemma / MediaPipe)**:
+  FlatHike makes central, real-world use of Google's open-weight **Gemma** model family (Gemma 2B and Gemma 270M) running 100% locally on Android devices via Google MediaPipe. This demonstrates how open-weight foundation models can empower life-safety applications in disconnected environments without depending on cloud APIs.
 
 ---
 
