@@ -2,6 +2,10 @@
 
 *This is a submission for the [Hacktoberfest Open-Source AI Challenge Week 1: Touch Grass](https://dev.to/challenges/hacktoberfest-week1-2026-10-05)*
 
+<p align="center">
+  <img src="https://raw.githubusercontent.com/torrua/FlatHike/main/docs/screenshots/cover_banner.jpg" alt="FlatHike Banner: Open-Source AI and On-Device Terrain Intelligence for Real-World Trails" width="100%" />
+</p>
+
 ---
 
 ## What I Built
