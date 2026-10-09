@@ -127,9 +127,8 @@ This year's Hacktoberfest theme—*Touch Grass*—highlights the true potential 
 
 ## Prize Categories
 
-- **Hacktoberfest Open-Source AI Challenge: Week 1 — Touch Grass (Overall Category)**
-- **Best Use of Open-Weight Models & Edge AI (Google Gemma / MediaPipe)**:
-  FlatHike makes central, real-world use of Google's open-weight **Gemma** model family (Gemma 2B and Gemma 270M) running 100% locally on Android devices via Google MediaPipe. This demonstrates how open-weight foundation models can empower life-safety applications in disconnected environments without depending on cloud APIs.
+- **Best Use of Gemma** (Featured Category)
+  FlatHike makes central, real-world use of Google's open-weight **Gemma** model family (Gemma 2B and Gemma 270M) running 100% locally on Android devices via Google MediaPipe Tasks GenAI. This demonstrates how open-weight foundation models can empower life-safety applications in disconnected environments without depending on cloud APIs.
 
 ---
 
