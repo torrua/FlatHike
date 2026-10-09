@@ -12,6 +12,10 @@ When you are planning or navigating a hike in the mountains, conventional map ap
 
 **FlatHike** is an open-source, privacy-first Android application designed for hikers, trail runners, and alpine adventurers. It analyzes real GPS telemetry (GPX, KML, FIT) and elevation profiles using digital elevation models (DEM) and biomechanical velocity algorithms, combined with **on-device open-weight AI (Google Gemma)** that runs completely offline with zero internet access.
 
+<p align="center">
+  <img src="https://raw.githubusercontent.com/torrua/FlatHike/main/docs/screenshots/03_elevation_and_slope_speed.png" alt="Elevation Profile and Slope Speed Analysis" width="360" />
+</p>
+
 ### Key Capabilities:
 - **Interactive Elevation & Waypoint Profiler:** Visualizes trail elevation profiles with interactive crosshairs, intermediate landmarks, pass/summit waypoints, and pinpoint inspection along continuous track arc-lengths.
 - **Biomechanical Slope Speed Modeling (Tobler's Hiking Function):** Automatically categorizes trails into 5 terrain slope classes (*Steep Up*, *Moderate Up*, *Flat*, *Moderate Down*, *Steep Down*) and calculates actual speed versus empirical human hiking physiology.
@@ -21,18 +25,43 @@ When you are planning or navigating a hike in the mountains, conventional map ap
 
 ---
 
-## Demo
+## Demo & Visual Walkthrough
 
 The app is published and ready to install on Android devices.
 
 - **GitHub Release with APK:** [FlatHike v1.5.1 on GitHub Releases](https://github.com/torrua/FlatHike/releases/tag/v1.5.1)
 - **Direct Download:** [FlatHike-v1.5.1-debug.apk](https://github.com/torrua/FlatHike/releases/download/v1.5.1/FlatHike-v1.5.1-debug.apk)
 
-### How It Works in Practice:
-1. **Load or Record a Track:** Open any GPX, FIT, or KML file from your favorite outdoor tracker or GPS unit.
-2. **Inspect the Terrain:** Tap anywhere along the elevation profile to inspect instantaneous slope angle, altitude, and distance. Add custom waypoints (like water sources or campsites) with a single tap.
-3. **Analyze Slope Performance:** Switch to the Segment Analysis tab to see how your pace held up on the steep ascents (>12% grade) compared to the flats, benchmarked against Tobler's scientific curve.
-4. **Consult Your Offline AI:** Ask the on-device Gemma assistant for recommendations on energy consumption, pacing strategy, or twilight cutoff times—without needing a cell tower.
+### 1. Flat vs. Real Backcountry Terrain & Geodetic Metrics
+When analyzing a 27 km mountain loop ascending past 4,000 meters, FlatHike contrasts hypothetical flat-ground speed against recorded mountain telemetry and calculates real 3D ellipsoid arc lengths:
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/torrua/FlatHike/main/docs/screenshots/01_overview_metrics.png" alt="Flat Surface vs Recorded Backcountry Data" width="340" />
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  <img src="https://raw.githubusercontent.com/torrua/FlatHike/main/docs/screenshots/02_geodetic_parameters.png" alt="WGS-84 Geodetic Parameters and Altitude Correction" width="340" />
+</p>
+
+*Left: Summary comparing flat ground speed to recorded alpine speed (1.8 km/h on steep terrain). Right: Precise WGS-84 geodetic corrections accounting for Earth's curvature and altitude above geoid.*
+
+### 2. Terrain Slope Segmentation & Elevation Profile
+Hikers can tap any point along the profile to inspect instantaneous altitude, gradient, and place custom intermediate markers:
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/torrua/FlatHike/main/docs/screenshots/03_elevation_and_slope_speed.png" alt="Elevation Profile and Speed vs Slope Gradient" width="360" />
+</p>
+
+*Elevation profile with touch crosshair (3644m at km 16.73) and five-tier slope categorization: Steep Ascent (>15%), Moderate Ascent (5-15%), Flat/Gentle (±5%), Moderate Descent (-15...-5%), and Steep Descent (<-15%).*
+
+### 3. Kilometer Splits & On-Device Gemma Trail Assistant
+The app segments the hike into clear splits and provides an offline intelligent chat assistant powered by Google Gemma:
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/torrua/FlatHike/main/docs/screenshots/04_splits_and_gemma_assistant.png" alt="Splits and AI Gemma Trail Assistant" width="340" />
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  <img src="https://raw.githubusercontent.com/torrua/FlatHike/main/docs/screenshots/05_gemma_settings.png" alt="Gemma Neural Model Modes" width="340" />
+</p>
+
+*Left: Kilometer splits and the built-in offline Gemma AI assistant. Right: Model settings supporting instant built-in offline expert mode, local MediaPipe GPU/CPU neural inference, and cloud fallback.*
 
 ---
 
